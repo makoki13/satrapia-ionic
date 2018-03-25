@@ -1,0 +1,82 @@
+<!--
+  Generated template for the RegistroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Dar de alta un usuario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+
+        <ion-item item item-input-wrapper>          
+          <ion-label>Nombre de usuario</ion-label>
+          <ion-input type="text" #nombre id="nombre" placeholder="Introduce tu nombre (mínimo 3 caracteres)"
+            (keypress)="controlNameKeypress($event);" (keyup)="testNombre();"></ion-input>
+          <ion-icon [name]="imgNombre" class="icono" item-right></ion-icon>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label>Correo</ion-label>
+          <ion-input type="email" #email id="email" placeholder="Introduce tu dirección de correo electrónico"
+          (keypress)="controlEmailKeypress($event);" (keyup)="testEmail();"></ion-input>
+          <ion-icon [name]="imgEmail" class="icono" item-right></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Nombre de jugador</ion-label>
+          <ion-input type="text" #username id="username" placeholder="Indica tu nombre de jugador"
+            (keypress)="controlUsernameKeypress($event);" (keyup)="testUsername();"></ion-input>
+          <ion-icon [name]="imgUsername" class="icono" item-right></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Contraseña</ion-label>
+          <ion-input type="text" #password id="password" placeholder="Indica tu contraseña"
+            (keypress)="controlPasswordKeypress($event);" (keyup)="testPassword();"></ion-input>
+          <ion-icon [name]="imgPassword" class="icono" item-right></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Confirma la contraseña</ion-label>
+          <ion-input type="text" #passwordConfirmado id="passwordConfirmado" placeholder="Vuelve a introducir la misma contraseña"
+            (keypress)="controlPasswordConfirmadoKeypress($event);" (keyup)="testPasswordConfirmado();"></ion-input>
+          <ion-icon [name]="imgPasswordConfirmado" class="icono" item-right></ion-icon>
+        </ion-item>
+
+        <ion-item>
+            <div class="row">
+                <div class="col text-center">
+                  <button ion-button clear (click)="registra()" #boton id="boton" class="register-button" [disabled]="!verificaFormulario()">Registrar</button>          
+                </div>
+            </div>
+        </ion-item>
+      
+      </ion-list>
+  </ion-content>
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+  <div class="container">
+    <div class="row main">
+      <div class="main-login main-center">      
+          
+       
+          <div class="form-group ">
+            <button (click)="registra()" id="button" class="btn btn-primary btn-lg btn-block login-button" [disabled]="!verificaFormulario()">Registrar</button>
+          </div>
+
+        
+      </div>
+    </div>
+  </div>
+</ion-content>
+-->
