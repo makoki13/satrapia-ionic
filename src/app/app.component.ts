@@ -32,7 +32,7 @@ export class MyApp {
           this.rootPage = RegistroPage;
         }
         else {
-          this.rootPage = LoginPage;
+          this.rootPage = RegistroPage;
         }
       });
     
