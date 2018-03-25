@@ -22,12 +22,14 @@
     "@angular/platform-browser": "5.2.9",
     "@angular/platform-browser-dynamic": "5.2.9",
     "@ionic-native/core": "4.5.3",
-    "@ionic-native/splash-screen": "4.5.3",    
+    "@ionic-native/splash-screen": "4.5.3",
     "@ionic-native/status-bar": "4.5.3",
     "@ionic/pro": "1.0.20",
     "@ionic/storage": "^2.1.3",
+    "cordova-plugin-ionic": "^4.1.3",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "npm": "^5.8.0",
     "rxjs": "5.5.7",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.20"
@@ -36,5 +38,14 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-ionic": {
+        "APP_ID": "4e2a3732",
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "background"
+      }
+    }
+  }
 }
