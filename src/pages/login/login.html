@@ -14,5 +14,35 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item item item-input-wrapper>
+      <ion-label>Nombre de usuario</ion-label>
+      <ion-input type="text" #user id="user" placeholder="Introduce tu nombre de usuario (mínimo 3 caracteres)"
+        (keypress)="controlNameKeypress($event);" (keyup)="testUsuario();"></ion-input>
+      <ion-icon [name]="imgUser" class="icono" item-right></ion-icon>
+    </ion-item>
 
+    <ion-item>
+      <ion-label>Contraseña</ion-label>
+      <ion-input type="text" #password id="password" placeholder="Indica tu contraseña"
+        (keypress)="controlPasswordKeypress($event);" (keyup)="testPassword();"></ion-input>
+      <ion-icon [name]="imgPassword" class="icono" item-right></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <div class="row">
+          <div class="col text-center">
+            <button ion-button clear (click)="entra()" #boton id="boton" class="login-button" [disabled]="!verificaFormulario()">Entrar</button>
+          </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <div class="row">
+          <div class="col text-center">
+            <button ion-button clear (click)="irAlRegistro()" #boton id="boton" class="register-button">Crear un nuevo usuario</button>
+          </div>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>

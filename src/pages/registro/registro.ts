@@ -43,14 +43,14 @@ export class RegistroPage {
 
   ionViewDidLoad() {
     setTimeout(()=>{
-      this.nombre.setFocus();      
+      this.nombre.setFocus();
     },200);
-    
+
     console.log('ionViewDidLoad RegistroPage');
   }
 
   ngOnInit() {
-    
+
     //this.nombre.setFocus();
     console.log('imagen',this.imgNombre);
   }
@@ -90,7 +90,7 @@ export class RegistroPage {
   controlPasswordConfirmadoKeypress(event) {
     const caracter = event.keyCode;
     if (caracter === 13) {
-      //this.boton.setFocus();      
+      //this.boton.setFocus();
     }
   }
 
