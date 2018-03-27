@@ -34,6 +34,8 @@ export class MyApp {
         else {
           this.rootPage = LoginPage;
         }
+
+        this.rootPage = LoginPage; // Quitar despues de pruebas
       });
     
       statusBar.styleDefault();
