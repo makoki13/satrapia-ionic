@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, App, LoadingController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -28,7 +28,11 @@ export class LoginPage {
   imgUser: string = this.imagenInicial;
   imgPassword: string = this.imagenInicial;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  public loginForm: any;
+  public backgroundImage = 'assets/imgs/fondo.png';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage,
+    public loadingCtrl: LoadingController, public alertCtrl: AlertController, public app: App) {
     this.storage.set('inicio','login');
   }
 
@@ -80,7 +84,20 @@ export class LoginPage {
   }
 
   entra() {
-    alert("En obras");
+    const loading = this.loadingCtrl.create({
+      duration: 500
+    });
+
+    loading.onDidDismiss(() => {
+      const alert = this.alertCtrl.create({
+        title: '¡Correcto!',
+        subTitle: 'Gracias por entrar.',
+        buttons: ['OK']
+      });
+      alert.present();
+    });
+
+    loading.present();
   }
 
   irAlRegistro() {
