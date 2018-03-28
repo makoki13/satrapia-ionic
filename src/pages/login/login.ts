@@ -3,12 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController, App, LoadingContr
 
 import { Storage } from '@ionic/storage';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { RegistroPage } from '../registro/registro';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -92,7 +88,7 @@ export class LoginPage {
       const alert = this.alertCtrl.create({
         title: '¡Correcto!',
         subTitle: 'Gracias por entrar.',
-        buttons: ['OK']
+        buttons: [{text: 'OK', handler:() => {this.navCtrl.push( HomePage );;}}]
       });
       alert.present();
     });
@@ -101,7 +97,7 @@ export class LoginPage {
   }
 
   irAlRegistro() {
-    alert("En obras");
+    this.navCtrl.push( RegistroPage );
   }
 
 }
