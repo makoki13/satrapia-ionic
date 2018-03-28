@@ -36,8 +36,9 @@ export class MyApp {
           this.rootPage = LoginPage;
         }
         */
-        this.rootPage = HomePage; // Quitar despues de pruebas
       });
+
+      this.rootPage = HomePage; // Quitar despues de pruebas
 
       statusBar.styleDefault();
       splashScreen.hide();

@@ -38,8 +38,15 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+
+  custom: green
 );
+
+$toolbar-md-title-text-color: green;
+$toolbar-ios-title-text-color: green;
+$toolbar-wp-title-text-color: green;
+
 
 
 // App iOS Variables

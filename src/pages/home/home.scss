@@ -1,3 +1,6 @@
 page-home {
-
+  button { background-color: map-get($colors, custom); color:white; }
+  ion-navbar[hidebackbutton] button[menutoggle] {
+    display: inline !important;
+  }
 }

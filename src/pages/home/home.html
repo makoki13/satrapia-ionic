@@ -1,14 +1,29 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton>
     <ion-title>
-      <button ion-button class="login-button" item-right>Cerrar sesión</button>
-    </ion-title>
+      <button menuToggle (click)="clickMenu();"><ion-icon name="menu"></ion-icon></button>
+      <label style="color:black;">Satrapia</label> V0.0.1 Usuario</ion-title>
+    <ion-buttons end> <button ion-button block (click)="finSesion()"> Terminar sesión </button> </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h1>SATRAPIA</h1>
-  <p>
-    V.0.0.1 (Ionic)
-  </p>
-</ion-content>
+<ion-menu [content]="content">
+
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+
+    <ion-content>
+      <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <ion-content>
+    <ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  </ion-content>
+

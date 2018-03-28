@@ -1,3 +1,7 @@
+import { ConfigPage } from '../pages/home/config/config';
+import { PersistentePage } from '../pages/home/persistente/persistente';
+import { FastPage } from '../pages/home/fast/fast';
+import { NuevoPage } from '../pages/home/nuevo/nuevo';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -16,7 +20,8 @@ import { RegistroPage } from '../pages/registro/registro';
     MyApp,
     HomePage,
     LoginPage,
-    RegistroPage
+    RegistroPage,
+    NuevoPage, FastPage, PersistentePage, ConfigPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { RegistroPage } from '../pages/registro/registro';
     MyApp,
     HomePage,
     LoginPage,
-    RegistroPage
+    RegistroPage,
+    NuevoPage, FastPage, PersistentePage, ConfigPage
   ],
   providers: [
     StatusBar,
