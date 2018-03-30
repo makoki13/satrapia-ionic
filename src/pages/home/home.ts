@@ -24,6 +24,7 @@ export class HomePage {
     this.storage.set('inicio','home');
 
     this.pages = [
+      { title: 'Test', component: NuevoPage },
       { title: 'Nuevo', component: NuevoPage },
       { title: 'Rápido', component: FastPage },
       { title: 'Persistente', component: PersistentePage },
