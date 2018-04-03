@@ -1,14 +1,8 @@
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, App } from 'ionic-angular';
 import { Component, ViewChild } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
-
-/**
- * Generated class for the RegistroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -38,7 +32,9 @@ export class RegistroPage {
   imgPassword: string = this.imagenInicial;
   imgPasswordConfirmado: string = this.imagenInicial;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public app: App,
+    private storage: Storage,) {
+    // this.storage.set('inicio','login');
   }
 
   ionViewDidLoad() {
@@ -55,8 +51,45 @@ export class RegistroPage {
     console.log('imagen',this.imgNombre);
   }
 
+  terminaRegistro() {
+    this.storage.set('inicio','home');
+
+    const usuario = this.username.value;
+
+    const nuevoUsuario: any = {
+      'nombre' : this.nombre.value,
+      'email'  : this.email.value,
+      'usuario': this.username.value,
+      'clave'  : this.password.value
+    }
+    this.storage.get('num-usuarios').then((val) => {
+      let numUsuarios = 1;
+      if (val) {numUsuarios = val + 1;}
+      this.storage.set('num-usuarios', numUsuarios);
+
+      this.storage.set('usuario' + numUsuarios, nuevoUsuario);
+
+      this.storage.set('sesion-usuario',usuario).then((val) => {
+        this.navCtrl.push( HomePage, { 'usuario': usuario } );
+      });
+    });
+  }
+
   registra() {
-   alert("En obras");
+    const loading = this.loadingCtrl.create({
+      duration: 500
+    });
+
+    loading.onDidDismiss(() => {
+      const alert = this.alertCtrl.create({
+        title: '¡Correcto!',
+        subTitle: 'Gracias por registrarse.',
+        buttons: [{text: 'OK', handler:() => { this.terminaRegistro(); }}]
+      });
+      alert.present();
+    });
+
+    loading.present();
   }
 
   controlNameKeypress(event) {

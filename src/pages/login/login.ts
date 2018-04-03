@@ -79,6 +79,13 @@ export class LoginPage {
     return (this.usuarioValido && this.claveValida);
   }
 
+  terminaEntra() {
+    const usuario = this.user.value;
+    this.storage.set('sesion-usuario',usuario).then((val) => {
+      this.navCtrl.push( HomePage );
+    });
+  }
+
   entra() {
     const loading = this.loadingCtrl.create({
       duration: 500
@@ -88,7 +95,7 @@ export class LoginPage {
       const alert = this.alertCtrl.create({
         title: '¡Correcto!',
         subTitle: 'Gracias por entrar.',
-        buttons: [{text: 'OK', handler:() => {this.navCtrl.push( HomePage );;}}]
+        buttons: [{text: 'OK', handler:() => { this.terminaEntra(); }}]
       });
       alert.present();
     });

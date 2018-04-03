@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Nav } from 'ionic-angular';
+import { NavController, NavParams, Nav } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -19,7 +19,9 @@ export class HomePage {
   //rootPage: any = HomePage;
   pages: Array<{title: string, component: any}>
 
-  constructor(public navCtrl: NavController, private storage: Storage) {
+  usuario: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     console.log("home");
     this.storage.set('inicio','home');
 
@@ -30,6 +32,12 @@ export class HomePage {
       { title: 'Persistente', component: PersistentePage },
       { title: 'Config', component: ConfigPage },
     ];
+
+    this.storage.get('sesion-usuario').then((val) => {
+      if (!val) this.finSesion();
+        console.log('inicio home - sesion-usuario:',val);
+        this.usuario = val;
+      });
   }
 
   clickMenu() {
@@ -43,6 +51,7 @@ export class HomePage {
   }
 
   finSesion() {
+    this.storage.remove('sesion-usuario');
     this.navCtrl.push( LoginPage );
   }
 
